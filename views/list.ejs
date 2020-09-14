@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">    
+</head>
+<body>
+    <div class="heading">
+        <h1>
+            <span class="glyphicon glyphicon-apple"></span>
+            Grocery List Application</h1>
+    </div>
+    
+    <div class="box">
+        <form action="/" method="post">
+            <div class="form-group">
+                <input type="text" class="form-control" name="item" placeholder="Enter Grocery Item" style="font-size:20px;" autocomplete="off" required>
+              </div>
+            <button type="submit" class="btn btn-primary" style="font-size:30px;">+Add Grocery Item</button>
+           
+        </form>
+    </div>
+    <div class="box">
+      
+    </div>
+        <div class="box">
+            <h2><%= day %></h2>
+            <% for(var i=0;i<items.length;i++) {%>
+                <form action="/delete" method="post">
+                    <div class="item">
+                        <input type="checkbox" name="checkbox" value="<%=items[i]._id %>" onchange="this.form.submit()">
+                        <p>
+                          <%= items[i].name %></p>
+                    </div>
+                </form> 
+            <% } %>
+        </div>
+    
+</body>
+</html>
